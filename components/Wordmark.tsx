@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 /**
- * Real Bay & Gather stacked lockup (BAY / & / GATHER / CATERING),
- * supplied as SVG with "Catering" baked into the artwork itself:
- * - bay-gather-logo-blue-catering.svg  → light backgrounds (header)
- * - bay-gather-logo-white-catering.svg → dark backgrounds (footer)
+ * Real Bay & Gather logo, "Catering" baked into the artwork itself:
+ * - bay-gather-catering-stacked-horizontal-blue.svg → header (wide format,
+ *   BAY/&/GATHER mark beside "CATERING", suited to a slim nav bar)
+ * - bay-gather-logo-white-catering.svg → footer (full stacked lockup)
  * No separate "Catering" text is added alongside these — it's already
  * part of the mark.
  * `unoptimized` skips Next's image pipeline (SVGs don't need resizing,
@@ -35,13 +35,13 @@ export default function Wordmark({
 
   return (
     <Image
-      src="/bay-gather-logo-blue-catering.svg"
+      src="/bay-gather-catering-stacked-horizontal-blue.svg"
       alt="Bay & Gather Catering"
-      width={59}
-      height={56}
+      width={121}
+      height={53}
       priority
       unoptimized
-      className={`h-14 w-auto sm:h-16 ${className}`}
+      className={`h-11 w-auto sm:h-12 ${className}`}
     />
   );
 }
