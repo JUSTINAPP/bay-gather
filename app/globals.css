@@ -47,3 +47,28 @@ h3 {
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
+
+/* Slow continuous zoom used behind hero photography (Ken Burns style),
+   modelled on the rotating-hero pattern used on volpino.com.au / sbmm.com.au */
+@keyframes kenburns {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.09);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-kenburns {
+  animation: kenburns 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-kenburns {
+    animation: none;
+  }
+}

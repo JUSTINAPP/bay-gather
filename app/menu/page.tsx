@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Container, Eyebrow, Button } from "@/components/ui";
+import PageBanner from "@/components/PageBanner";
 
 export const metadata: Metadata = {
   title: "Menu | Bay & Gather Catering",
@@ -61,6 +62,10 @@ const MENUS = [
 export default function MenuPage() {
   return (
     <>
+      <PageBanner
+        src="/bay-gather-home-page-03.jpg"
+        alt="Shared plates from a Bay & Gather event"
+      />
       <section className="py-20 text-center">
         <Container>
           <Eyebrow>Sample menus</Eyebrow>

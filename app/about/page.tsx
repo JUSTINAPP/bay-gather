@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container, Eyebrow, Button } from "@/components/ui";
+import PageBanner from "@/components/PageBanner";
 
 export const metadata: Metadata = {
   title: "About | Bay & Gather Catering",
@@ -10,6 +12,10 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <PageBanner
+        src="/bay-gather-home-page-04.jpg"
+        alt="Food from a Bay & Gather event"
+      />
       <section className="py-20 text-center">
         <Container>
           <Eyebrow>Who we are</Eyebrow>
@@ -26,19 +32,30 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="py-16 bg-white/60">
-        <Container className="max-w-2xl text-center">
-          <p className="font-serif italic text-2xl text-bay-blue">
-            &ldquo;You&apos;re in good hands.&rdquo;
-          </p>
-          <p className="mt-4 text-stone">
-            We operate as our own independent brand — separate from South
-            Beach and Volpino — built to serve multiple venues, private
-            homes and event spaces without being tied to a single location.
-            The brand feels approachable, coastal, food-led and relaxed —
-            premium without pretension. More a quality hospitality business
-            than a generic caterer.
-          </p>
+      <section className="py-20 bg-white/60">
+        <Container className="grid items-center gap-10 sm:grid-cols-2">
+          <div className="order-2 sm:order-1">
+            <p className="font-serif italic text-2xl text-bay-blue">
+              &ldquo;You&apos;re in good hands.&rdquo;
+            </p>
+            <p className="mt-4 text-stone">
+              We operate as our own independent brand — separate from South
+              Beach and Volpino — built to serve multiple venues, private
+              homes and event spaces without being tied to a single location.
+              The brand feels approachable, coastal, food-led and relaxed —
+              premium without pretension. More a quality hospitality business
+              than a generic caterer.
+            </p>
+          </div>
+          <div className="order-1 sm:order-2 relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <Image
+              src="/bay-gather-home-page-01.jpg"
+              alt="A Bay & Gather share plate"
+              fill
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
         </Container>
       </section>
 

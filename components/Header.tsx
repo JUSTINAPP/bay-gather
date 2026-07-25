@@ -12,7 +12,7 @@ export default function Header() {
     <header className="border-b border-stone/20 bg-cream/95 backdrop-blur sticky top-0 z-40">
       <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
         <Link href="/" aria-label="Bay & Gather home">
-          <Wordmark variant="horizontal" tone="bay-blue" />
+          <Wordmark variant="header" />
         </Link>
         <nav className="hidden sm:flex items-center gap-8">
           {NAV_LINKS.map((link) => (

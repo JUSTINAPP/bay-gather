@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { Container, Eyebrow, Button } from "@/components/ui";
+import KenBurnsHero from "@/components/KenBurnsHero";
 
 const PILLARS = [
   {
@@ -29,37 +31,56 @@ const SERVICES = [
 export default function Home() {
   return (
     <>
-      <section className="py-24 sm:py-32">
-        <Container className="text-center flex flex-col items-center gap-6">
-          <Eyebrow>Mornington Peninsula &middot; Off-site catering</Eyebrow>
-          <h1 className="text-4xl sm:text-6xl text-bay-blue max-w-3xl">
-            Good food. Well run. No fuss.
-          </h1>
-          <p className="max-w-xl text-stone text-lg">
-            Bay &amp; Gather brings premium off-site catering to weddings,
-            private events and corporate functions across the Mornington
-            Peninsula.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-4">
-            <Button href="/contact">Enquire about your event</Button>
-            <Button href="/menu" variant="secondary">
-              See the menu
+      <KenBurnsHero>
+        <Eyebrow>
+          <span className="text-cream/80">
+            Mornington Peninsula &middot; Off-site catering
+          </span>
+        </Eyebrow>
+        <h1 className="mt-4 max-w-3xl text-4xl sm:text-6xl">
+          Good food. Well run. No fuss.
+        </h1>
+        <p className="mt-4 max-w-xl text-cream/85 text-lg">
+          Bay &amp; Gather brings premium off-site catering to weddings,
+          private events and corporate functions across the Mornington
+          Peninsula.
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <Button href="/contact" variant="onDark">
+            Enquire about your event
+          </Button>
+          <Button href="/menu" variant="onDarkSecondary">
+            See the menu
+          </Button>
+        </div>
+      </KenBurnsHero>
+
+      <section className="py-20 sm:py-24">
+        <Container className="grid items-center gap-10 sm:grid-cols-2">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+            <Image
+              src="/bay-gather-home-page-02.jpg"
+              alt="Table setting for a Bay & Gather event"
+              fill
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <Eyebrow>Our story</Eyebrow>
+            <p className="mt-3 font-serif italic text-2xl sm:text-3xl text-bay-blue">
+              &ldquo;You&apos;re in good hands.&rdquo;
+            </p>
+            <p className="mt-4 text-stone">
+              We provide off-site catering for weddings, private events,
+              corporate functions and premium hospitality experiences — built
+              to serve multiple venues, private homes and event spaces across
+              the Peninsula.
+            </p>
+            <Button href="/about" variant="secondary" >
+              <span className="whitespace-nowrap">Our Story →</span>
             </Button>
           </div>
-        </Container>
-      </section>
-
-      <section className="py-16 bg-white/60">
-        <Container className="text-center max-w-2xl">
-          <p className="font-serif italic text-2xl sm:text-3xl text-bay-blue">
-            &ldquo;You&apos;re in good hands.&rdquo;
-          </p>
-          <p className="mt-4 text-stone">
-            We provide off-site catering for weddings, private events,
-            corporate functions and premium hospitality experiences — built
-            to serve multiple venues, private homes and event spaces across
-            the Peninsula.
-          </p>
         </Container>
       </section>
 

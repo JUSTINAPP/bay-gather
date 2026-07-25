@@ -19,6 +19,15 @@ export function Eyebrow({ children }: { children: ReactNode }) {
   );
 }
 
+const BUTTON_VARIANTS = {
+  primary: "bg-bay-blue text-cream hover:bg-near-black",
+  secondary: "border border-bay-blue text-bay-blue hover:bg-bay-blue hover:text-cream",
+  // For use over hero photography rather than the cream/white background.
+  onDark: "bg-cream text-bay-blue hover:bg-white",
+  onDarkSecondary:
+    "border border-cream text-cream hover:bg-cream hover:text-bay-blue",
+} as const;
+
 export function Button({
   href,
   children,
@@ -26,16 +35,12 @@ export function Button({
 }: {
   href: string;
   children: ReactNode;
-  variant?: "primary" | "secondary";
+  variant?: keyof typeof BUTTON_VARIANTS;
 }) {
   const base =
     "inline-flex items-center justify-center rounded-full px-7 py-3 eyebrow text-xs transition-colors";
-  const styles =
-    variant === "primary"
-      ? "bg-bay-blue text-cream hover:bg-near-black"
-      : "border border-bay-blue text-bay-blue hover:bg-bay-blue hover:text-cream";
   return (
-    <Link href={href} className={`${base} ${styles}`}>
+    <Link href={href} className={`${base} ${BUTTON_VARIANTS[variant]}`}>
       {children}
     </Link>
   );

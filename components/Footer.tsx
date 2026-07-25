@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-bay-blue text-cream mt-24">
       <div className="mx-auto max-w-6xl px-6 py-14 flex flex-col items-center gap-6 text-center">
-        <Wordmark variant="stacked" tone="cream" />
+        <Wordmark variant="footer" />
         <p className="font-serif italic text-lg max-w-md">
           &ldquo;Good food. Well run. No fuss.&rdquo;
         </p>
