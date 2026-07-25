@@ -1,9 +1,12 @@
 import Image from "next/image";
 
 /**
- * Real Bay & Gather logo (supplied by Jonas — public/bay-gaher-logo.jpg),
- * paired with a "Catering" wordmark since the supplied artwork is just
- * the BAY / & / GATHER mark on its own.
+ * Real Bay & Gather horizontal lockup, supplied as SVG:
+ * - bay-gather-logo-blue.svg  → light backgrounds (header)
+ * - bay-gather-logo-white.svg → dark backgrounds (footer)
+ * Neither includes the word "Catering", so it's set alongside as type.
+ * `unoptimized` skips Next's image pipeline (SVGs don't need resizing,
+ * and it avoids needing dangerouslyAllowSVG in next.config).
  */
 
 type WordmarkProps = {
@@ -18,15 +21,14 @@ export default function Wordmark({
   if (variant === "footer") {
     return (
       <div className={`flex flex-col items-center gap-3 ${className}`}>
-        <div className="overflow-hidden rounded-2xl bg-cream p-3">
-          <Image
-            src="/bay-gaher-logo.jpg"
-            alt="Bay & Gather"
-            width={96}
-            height={96}
-            className="h-24 w-24 object-contain"
-          />
-        </div>
+        <Image
+          src="/bay-gather-logo-white.svg"
+          alt="Bay & Gather"
+          width={190}
+          height={56}
+          unoptimized
+          className="h-12 w-auto sm:h-14"
+        />
         <span className="eyebrow text-xs text-cream">Catering</span>
       </div>
     );
@@ -35,12 +37,13 @@ export default function Wordmark({
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <Image
-        src="/bay-gaher-logo.jpg"
+        src="/bay-gather-logo-blue.svg"
         alt="Bay & Gather"
-        width={48}
-        height={48}
+        width={148}
+        height={44}
         priority
-        className="h-11 w-11 object-contain sm:h-12 sm:w-12"
+        unoptimized
+        className="h-9 w-auto sm:h-10"
       />
       <span className="eyebrow text-sm text-bay-blue">Catering</span>
     </div>
