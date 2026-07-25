@@ -1,10 +1,12 @@
 import Image from "next/image";
 
 /**
- * Real Bay & Gather horizontal lockup, supplied as SVG:
- * - bay-gather-logo-blue.svg  → light backgrounds (header)
- * - bay-gather-logo-white.svg → dark backgrounds (footer)
- * Neither includes the word "Catering", so it's set alongside as type.
+ * Real Bay & Gather stacked lockup (BAY / & / GATHER / CATERING),
+ * supplied as SVG with "Catering" baked into the artwork itself:
+ * - bay-gather-logo-blue-catering.svg  → light backgrounds (header)
+ * - bay-gather-logo-white-catering.svg → dark backgrounds (footer)
+ * No separate "Catering" text is added alongside these — it's already
+ * part of the mark.
  * `unoptimized` skips Next's image pipeline (SVGs don't need resizing,
  * and it avoids needing dangerouslyAllowSVG in next.config).
  */
@@ -20,32 +22,26 @@ export default function Wordmark({
 }: WordmarkProps) {
   if (variant === "footer") {
     return (
-      <div className={`flex flex-col items-center gap-3 ${className}`}>
-        <Image
-          src="/bay-gather-logo-white.svg"
-          alt="Bay & Gather"
-          width={190}
-          height={56}
-          unoptimized
-          className="h-12 w-auto sm:h-14"
-        />
-        <span className="eyebrow text-xs text-cream">Catering</span>
-      </div>
+      <Image
+        src="/bay-gather-logo-white-catering.svg"
+        alt="Bay & Gather Catering"
+        width={148}
+        height={140}
+        unoptimized
+        className={`h-32 w-auto sm:h-36 ${className}`}
+      />
     );
   }
 
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
-      <Image
-        src="/bay-gather-logo-blue.svg"
-        alt="Bay & Gather"
-        width={148}
-        height={44}
-        priority
-        unoptimized
-        className="h-9 w-auto sm:h-10"
-      />
-      <span className="eyebrow text-sm text-bay-blue">Catering</span>
-    </div>
+    <Image
+      src="/bay-gather-logo-blue-catering.svg"
+      alt="Bay & Gather Catering"
+      width={59}
+      height={56}
+      priority
+      unoptimized
+      className={`h-14 w-auto sm:h-16 ${className}`}
+    />
   );
 }
